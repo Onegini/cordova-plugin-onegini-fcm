@@ -1,0 +1,42 @@
+{
+  "name": "cordova-plugin-onegini-fcm",
+  "version": "1.0.0-SNAPSHOT",
+  "description": "Onegini Cordova Plugin FCM",
+  "cordova": {
+    "id": "cordova-plugin-onegini",
+    "platforms": [
+      "android"
+    ]
+  },
+  "engines": {
+    "cordova": ">=6.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Onegini/cordova-plugin-onegini.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-ios",
+    "cordova-android",
+    "onegini",
+    "msp",
+    "mobile-security-platform",
+    "security",
+    "fcm",
+    "firebase",
+    "cloud",
+    "messaging",
+    "push",
+    "notifications"
+  ],
+  "author": "Onegini B.V.",
+  "license": "Apache-2.0",
+  "bugs": {
+    "email": "support@onegini.com"
+  },
+  "homepage": "https://github.com/Onegini/cordova-plugin-onegini-fcm#readme",
+  "scripts": {
+    "clean": "rm -rf dist node_modules",
+  }
+}
