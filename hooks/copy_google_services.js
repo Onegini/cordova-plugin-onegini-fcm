@@ -25,7 +25,7 @@ module.exports = function (context) {
   const projectRoot = context.opts.projectRoot;
   const androidPlatformPath = path.join(projectRoot, 'platforms/android');
   const googleServicesSrcPath = path.join(projectRoot, 'google-services.json');
-  const googleServicesJsonTargetPath = path.join(projectRoot, androidPlatformPath, 'google-services.json');
+  const googleServicesJsonTargetPath = path.join(androidPlatformPath, 'google-services.json');
 
   if (!directoryExists(androidPlatformPath)) {
     return;
@@ -35,7 +35,7 @@ module.exports = function (context) {
     console.log(`${pluginId}: Copying google-services.json...`);
     copyFile(googleServicesSrcPath, googleServicesJsonTargetPath, function(err) {
       if (err) {
-        deferral.reject(`${pluginId}: Error: Cannot copy Google services JSON! (${err}) `)
+        deferral.reject(`${pluginId}: Error: Cannot copy 'google-services.json'! (${err}) `)
       } else {
         deferral.resolve();
       }
