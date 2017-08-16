@@ -3,7 +3,7 @@
   "version": "1.0.0-SNAPSHOT",
   "description": "Onegini Cordova Plugin FCM",
   "cordova": {
-    "id": "cordova-plugin-onegini",
+    "id": "cordova-plugin-onegini-fcm",
     "platforms": [
       "android"
     ]
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Onegini/cordova-plugin-onegini.git"
+    "url": "git+https://github.com/Onegini/cordova-plugin-onegini-fcm.git"
   },
   "keywords": [
     "ecosystem:cordova",
@@ -37,6 +37,6 @@
   },
   "homepage": "https://github.com/Onegini/cordova-plugin-onegini-fcm#readme",
   "scripts": {
-    "clean": "rm -rf dist node_modules",
+    "clean": "rm -rf dist node_modules"
   }
 }
