@@ -1,0 +1,14 @@
+buildscript {
+  repositories {
+    jcenter()
+  }
+
+  dependencies {
+    classpath 'com.android.tools.build:gradle:2.2.3' // 2.3.x has an obfuscation bug, need to wait for fix in 2.4.0
+    classpath 'com.google.gms:google-services:3.0.0'
+  }
+}
+
+ext.postBuildExtras = {
+  apply plugin: com.google.gms.googleservices.GoogleServicesPlugin
+}

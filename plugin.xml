@@ -20,6 +20,8 @@
   <name>OneginiCordovaPluginFcm</name>
   <description>Onegini Cordova Plugin FCM</description>
 
+  <hook type="after_prepare" src="hooks/copy_google_services.js" />
+
   <platform name="android">
 
     <!-- Build gradle -->
