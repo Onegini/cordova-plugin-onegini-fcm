@@ -27,5 +27,21 @@
     <!-- Build gradle -->
     <framework src="src/android/build-extras.gradle" custom="true" type="gradleReference" />
 
+    <!-- FCM Config -->
+    <config-file target="AndroidManifest.xml" parent="application">
+      <service
+          android:name="com.onegini.mobile.sdk.cordova.fcm.FcmListenerService">
+        <intent-filter>
+          <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+        </intent-filter>
+      </service>
+      <service
+          android:name="com.onegini.mobile.sdk.cordova.fcm.FcmInstanceIdService">
+        <intent-filter>
+          <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+        </intent-filter>
+      </service>
+      <service android:name="com.onegini.mobile.sdk.cordova.fcm.FcmTokenUpdateService" />
+    </config-file>
   </platform>
 </plugin>
