@@ -16,14 +16,32 @@
 -->
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android"
         id="cordova-plugin-onegini-fcm"
-        version="1.0.0-SNAPSHOT">
+        version="1.0.0">
   <name>OneginiCordovaPluginFcm</name>
   <description>Onegini Cordova Plugin FCM</description>
+
+  <hook type="after_prepare" src="hooks/copy_google_services.js"/>
 
   <platform name="android">
 
     <!-- Build gradle -->
-    <framework src="src/android/build-extras.gradle" custom="true" type="gradleReference" />
+    <framework src="src/android/build-extras.gradle" custom="true" type="gradleReference"/>
 
+    <!-- FCM Config -->
+    <config-file target="AndroidManifest.xml" parent="application">
+      <service
+          android:name="com.onegini.mobile.sdk.cordova.fcm.FcmListenerService">
+        <intent-filter>
+          <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+        </intent-filter>
+      </service>
+      <service
+          android:name="com.onegini.mobile.sdk.cordova.fcm.FcmInstanceIdService">
+        <intent-filter>
+          <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+        </intent-filter>
+      </service>
+      <service android:name="com.onegini.mobile.sdk.cordova.fcm.FcmTokenUpdateService"/>
+    </config-file>
   </platform>
 </plugin>
