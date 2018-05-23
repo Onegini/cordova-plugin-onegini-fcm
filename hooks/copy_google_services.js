@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 Onegini B.V.
+ * Copyright (c) 2017-2018 Onegini B.V.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,7 @@ module.exports = function (context) {
   const pluginId = 'cordova-plugin-onegini-fcm';
   const deferral = context.requireCordovaModule('q').defer();
   const projectRoot = context.opts.projectRoot;
-  const androidPlatformPath = path.join(projectRoot, 'platforms/android');
+  const androidPlatformPath = getAndroidPlatformPath(projectRoot);
   const googleServicesSrcPath = path.join(projectRoot, 'google-services.json');
   const googleServicesJsonTargetPath = path.join(androidPlatformPath, 'google-services.json');
 
@@ -46,6 +46,15 @@ module.exports = function (context) {
 
   return deferral.promise;
 };
+
+function getAndroidPlatformPath(projectRoot) {
+  const android7PlatformPath = path.join(projectRoot, 'platforms/android/app');
+  if(directoryExists(android7PlatformPath)) {
+    return android7PlatformPath;
+  } else {
+    return path.join(projectRoot, 'platforms/android');
+  }
+}
 
 function directoryExists(path) {
   try  {
